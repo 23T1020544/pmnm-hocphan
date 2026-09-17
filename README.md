@@ -1,4 +1,4 @@
-# GIAO BÀI TẬP 01: PHẦN MỀM MÃ NGUỒN MỜ
+# BÀI TẬP 01: PHẦN MỀM MÃ NGUỒN MỜ
 
 **Thông tin sinh viên:**
 * **Họ và tên:** Nguyễn Công Tình

@@ -1,0 +1,19 @@
+# BÀI 1.3: KHÁI NIỆM TRAGEDY OF THE COMMONS TRONG MÃ NGUỒN MỜ — TRƯỜNG HỢP CORE-JS
+
+### 1. Khái niệm Tragedy of the Commons trong mã nguồn mở
+"Bi kịch của mảnh đất công" (Tragedy of the Commons) là hiện tượng kinh tế học xuất hiện khi một tài nguyên chung miễn phí bị tất cả mọi người khai thác tối đa, nhưng không ai chịu bỏ chi phí hay công sức để bảo tồn, dẫn đến việc tài nguyên đó bị suy kiệt.
+
+Trong bối cảnh phần mềm mã nguồn mở, hiện tượng này diễn ra phổ biến dưới dạng: hàng triệu công ty, tập đoàn công nghệ sử dụng các thư viện hạ tầng mã nguồn mở miễn phí để xây dựng sản phẩm thương mại thu lời hàng tỷ USD, nhưng lại không tài trợ hay hỗ trợ gì cho các nhà phát triển (maintainer) — những người đang thầm lặng duy trì hệ thống đó.
+
+### 2. Phân tích trường hợp cụ thể: `core-js`
+`core-js` là một thư viện JavaScript chịu trách nhiệm cung cấp polyfill (mã hỗ trợ các tính năng JavaScript mới chạy được trên trình duyệt cũ). Hầu như toàn bộ hệ sinh thái web hiện đại (thông qua Babel, Webpack, Create React App...) đều phụ thuộc vào `core-js`. Thư viện này đạt hàng chục đến hàng trăm triệu lượt tải về mỗi tuần.
+
+* **Thực trạng tài chính bất hợp lý:** Mặc dù đóng vai trò là hạ tầng cho cả ngành công nghiệp web, `core-js` lại do duy nhất một nhà phát triển — Denis Pushkarev (zloirock) — gánh vác và duy trì trong nhiều năm. Denis dành toàn bộ thời gian làm việc cho dự án, nhưng số tiền quyên góp nhận được mỗi tháng chỉ vỏn vẹn vài trăm USD, không đủ chi trả sinh hoạt phí cơ bản.
+* **Hậu quả bi kịch:** Khi gặp khủng hoảng tài chính và biến cố cá nhân, tác giả đã phải đưa ra những lời kêu cứu gay gắt ngay trên terminal khi người dùng cài đặt gói phần mềm. Sự kiệt sức của maintainer đe dọa trực tiếp đến sự an toàn và khả năng nâng cấp của hàng triệu ứng dụng web trên toàn thế giới.
+
+### 3. Đề xuất cơ chế khắc phục
+Để giải quyết bài toán bù đắp chi phí và giúp hệ sinh thái phát triển bền vững, cần triển khai các giải pháp thực tế sau:
+
+* **Trích quỹ tự động từ trình quản lý gói (Package Manager Funding):** Các công ty quản lý như npm/GitHub cần xây dựng mô hình thu phí trả góp đối với các tài khoản doanh nghiệp. Một phần kinh phí này sẽ tự động phân bổ cho các maintainer dựa trên tần suất dự án của họ được các doanh nghiệp đó sử dụng.
+* **Chuyển đổi sang giấy phép kép (Dual-Licensing):** Áp dụng giấy phép thương mại cho các tập đoàn có doanh thu lớn (ví dụ: bắt buộc trả phí nếu doanh thu công ty vượt 1 triệu USD/năm) và giữ giấy phép miễn phí cho cá nhân, học sinh, sinh viên hoặc tổ chức phi lợi nhuận.
+* **Trách nhiệm xã hội của doanh nghiệp (OSPO - Open Source Program Office):** Các tập đoàn lớn cần thành lập bộ phận quản lý mã nguồn mở và quy định sẵn một khoản ngân sách cố định hàng năm để tài trợ trực tiếp cho các dự án hạ tầng mà họ đang phụ thuộc thông qua các nền tảng như Open Collective hay GitHub Sponsors.

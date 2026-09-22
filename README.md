@@ -4,7 +4,7 @@
 * **Họ và tên:** Nguyễn Công Tình
 * **Mã sinh viên:** 23T1020544
 * **Lớp:** K47B
-* **Kho lưu trữ (Repository):** `pmm-hocphan`
+* **Kho lưu trữ (Repository):** `pmnm-hocphan`
 
 ---
 

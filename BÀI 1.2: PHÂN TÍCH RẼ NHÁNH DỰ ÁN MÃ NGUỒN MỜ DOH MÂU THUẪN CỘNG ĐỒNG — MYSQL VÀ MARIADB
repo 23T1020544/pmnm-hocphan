@@ -1,0 +1,20 @@
+# BÀI 1.2: PHÂN TÍCH RẼ NHÁNH DỰ ÁN MÃ NGUỒN MỜ DOH MÂU THUẪN CỘNG ĐỒNG — MYSQL VÀ MARIADB
+
+### 1. Bối cảnh dự án gốc
+MySQL được khởi xướng phát triển từ giữa những năm 1990 bởi Michael "Monty" Widenius và công ty MySQL AB. Nhờ ưu điểm nhẹ, tốc độ xử lý nhanh và hoàn toàn miễn phí, MySQL nhanh chóng trở thành hệ quản trị cơ sở dữ liệu quan hệ mã nguồn mở phổ biến nhất thế giới, trở thành xương sống cho hàng triệu trang web. Năm 2008, Sun Microsystems mua lại MySQL AB với giá 1 tỷ USD. Bước ngoặt lớn xảy ra vào năm 2009 khi tập đoàn Oracle thông báo mua lại Sun Microsystems, từ đó chính thức nắm quyền kiểm soát MySQL.
+
+### 2. Nguyên nhân mâu thuẫn và quyết định rẽ nhánh (Fork)
+Oracle vốn nổi tiếng với mô hình kinh doanh phần mềm thương mại độc quyền và chính sách cứng rắn. Sự kiện một tập đoàn thương mại lớn sở hữu dự án mã nguồn mở cốt lõi đã dấy lên mối lo ngại sâu sắc trong cộng đồng phát triển. Nhiều nhà quản trị e ngại Oracle sẽ cố tình làm suy yếu hoặc hạn chế sự phát triển của MySQL để bảo vệ sản phẩm cơ sở dữ liệu thương mại mang lại lợi nhuận cao của họ (Oracle Database).
+
+Nhận thấy rủi ro này đối với tính tự do của phần mềm, Michael Widenius cùng các kỹ sư cốt lõi đã rời khỏi dự án và quyết định rẽ nhánh (fork) mã nguồn MySQL vào năm 2009 để tạo ra **MariaDB**. Mục tiêu chính của MariaDB là duy trì một bản sao hoàn toàn tương thích (drop-in replacement) với MySQL nhưng cam kết giữ mã nguồn mở vĩnh viễn dưới giấy phép GPL.
+
+### 3. Diễn biến và tác động đến hệ sinh thái
+Sự xuất hiện của MariaDB đã tạo nên một làn sóng dịch chuyển mạnh mẽ trong ngành công nghệ:
+* **Tính mở và tốc độ cải tiến:** Trong khi bản MySQL do Oracle quản lý bị phàn nàn là phát triển khép kín và chậm trễ sửa lỗi cho cộng đồng, MariaDB lại liên tục đón nhận đóng góp, tích hợp nhiều bộ lưu trữ cơ sở dữ liệu mới (như Aria, ColumnStore) và tối ưu hiệu năng.
+* **Sự chuyển dịch của các hệ điều hành:** Hàng loạt phân phối Linux lớn như Red Hat Enterprise Linux, Debian, Fedora và Arch Linux đã quyết định loại bỏ MySQL và chọn MariaDB làm hệ quản trị cơ sở dữ liệu mặc định.
+* **Sự hưởng ứng từ doanh nghiệp:** Nhiều nền tảng quy mô toàn cầu như Wikipedia, Google hay Booking.com cũng chuyển hướng sử dụng MariaDB để đảm bảo tính an toàn và chủ động về mặt công nghệ.
+
+### 4. Tình trạng hiện tại và bài học kinh nghiệm
+Hiện nay, cả hai dự án vẫn song song tồn tại và phát triển theo hai hướng riêng biệt: MySQL thuộc Oracle tập trung vào nhóm khách hàng doanh nghiệp tích hợp hệ sinh thái Cloud, trong khi MariaDB trở thành sự lựa chọn ưu tiên của cộng đồng tự do.
+
+Sự kiện rẽ nhánh giữa MySQL và MariaDB để lại một bài học đắt giá: **Giá trị cốt lõi của phần mềm mã nguồn mở nằm ở cộng đồng và giấy phép tự do**. Khi quyền lợi cộng đồng bị đe dọa bởi lợi ích doanh nghiệp, cơ chế rẽ nhánh (fork) chính là "van an toàn" giúp bảo vệ và duy trì sự sống cho sản phẩm công nghệ.

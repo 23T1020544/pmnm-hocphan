@@ -98,9 +98,14 @@ GIAO_DIEN_CAU_1 = f"""
         <p><b>Tổng số sinh viên:</b> {{{{ tong_sinh_vien }}}}</p>
         <p><b>Số lớp (không trùng):</b> {{{{ tong_so_lop }}}}</p>
         
+        <h3>Các câu trong bài tập</h3>
         <ul class="the-danh-sach">
-            <li><a href="{{{{ url_for('danh_sach_sinh_vien') }}}}">Xem danh sách sinh viên (/students) - Câu 2</a></li>
-            <li><a href="{{{{ url_for('tim_kiem_sinh_vien') }}}}">Tìm kiếm sinh viên an toàn (/search) - Câu 6</a></li>
+            <li><a href="{{{{ url_for('trang_chu') }}}}">Câu 1 - Trang chủ và thống kê</a></li>
+            <li><a href="{{{{ url_for('danh_sach_sinh_vien') }}}}">Câu 2 - Danh sách và lọc sinh viên</a></li>
+            <li><a href="{{{{ url_for('chi_tiet_sinh_vien', mssv=mssv_mau) }}}}">Câu 3 - Chi tiết sinh viên</a></li>
+            <li><a href="{{{{ url_for('trang_rut_gon_cau_4', mssv=mssv_mau) }}}}">Câu 4 - Link rút gọn</a></li>
+            <li><a href="{{{{ url_for('trang_xuat_csv_cau_5', mssv=mssv_mau) }}}}">Câu 5 - Xem và tải bảng điểm CSV</a></li>
+            <li><a href="{{{{ url_for('tim_kiem_sinh_vien') }}}}">Câu 6 - Tìm kiếm an toàn</a></li>
             <li><a href="{{{{ url_for('api_danh_sach_sinh_vien') }}}}">Xem API sinh viên (/api/students)</a></li>
         </ul>
     </div>
@@ -365,7 +370,13 @@ def trang_chu():
     tong_sinh_vien = len(SINH_VIEN)
     cac_lop = set(sv['Lop'] for sv in SINH_VIEN.values())
     tong_so_lop = len(cac_lop)
-    return render_template_string(GIAO_DIEN_CAU_1, tong_sinh_vien=tong_sinh_vien, tong_so_lop=tong_so_lop)
+    mssv_mau = next(iter(SINH_VIEN))
+    return render_template_string(
+        GIAO_DIEN_CAU_1,
+        tong_sinh_vien=tong_sinh_vien,
+        tong_so_lop=tong_so_lop,
+        mssv_mau=mssv_mau
+    )
 
 # ------------------------------------------
 # ROUTE CÂU 2
@@ -425,6 +436,8 @@ def trang_rut_gon_cau_4(mssv):
 
 @ung_dung.route('/sv/<mssv>')
 def rut_gon_chi_tiet_sinh_vien(mssv):
+    if mssv not in SINH_VIEN:
+        abort(404, description=f"Không có sinh viên với MSSV = {mssv}")
     return redirect(url_for('chi_tiet_sinh_vien', mssv=mssv), code=301)
 
 # ------------------------------------------

@@ -1,0 +1,484 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Blog</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            background: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            font-size: 32px;
+        }
+
+        /* MENU */
+        nav {
+            background: #1e3a8a;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #3b82f6;
+        }
+
+        /* MAIN */
+        main {
+            max-width: 1000px;
+            min-height: 450px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h2 {
+            color: #1d4ed8;
+            margin-bottom: 20px;
+        }
+
+        /* BANNER */
+        .banner {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 2px 8px #0000000d;
+        }
+
+        .banner p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 10px 18px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* CARDS */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #0000000d;
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        .date {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FORM */
+        .contact-form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font: inherit;
+        }
+
+        .contact-form button {
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Mini Blog</h1>
+        <p>Chia sẻ kiến thức và kinh nghiệm học tập</p>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+        <a href="#home" class="active" data-page="home">Trang chủ</a>
+        <a href="#posts" data-page="posts">Bài viết</a>
+        <a href="#categories" data-page="categories">Danh mục</a>
+        <a href="#about" data-page="about">Giới thiệu</a>
+        <a href="#contact" data-page="contact">Liên hệ</a>
+    </nav>
+
+    <!-- NỘI DUNG CÁC TRANG -->
+    <main>
+
+        <!-- TRANG CHỦ -->
+        <section id="home" class="page active">
+
+            <div class="banner">
+                <h2>Chào mừng đến với Mini Blog!</h2>
+                <p>
+                    Khám phá kiến thức về công nghệ, lập trình
+                    và những kinh nghiệm hữu ích trong học tập.
+                </p>
+                <a href="#posts" class="btn">Khám phá bài viết</a>
+            </div>
+
+            <h2>Bài viết nổi bật</h2>
+
+            <div class="blog-container">
+                <article class="card">
+                    <h3>HTML cơ bản</h3>
+                    <p class="date">13/10/2026 · Công nghệ</p>
+                    <p>Tìm hiểu cách xây dựng cấu trúc một trang web bằng HTML.</p>
+                    <a href="#post-html">Đọc bài viết →</a>
+                </article>
+
+                <article class="card">
+                    <h3>CSS cơ bản</h3>
+                    <p class="date">12/10/2026 · Thiết kế web</p>
+                    <p>Học cách trình bày giao diện website bằng CSS.</p>
+                    <a href="#post-css">Đọc bài viết →</a>
+                </article>
+            </div>
+
+        </section>
+
+        <!-- TRANG BÀI VIẾT -->
+        <section id="posts" class="page">
+            <h2>Tất cả bài viết</h2>
+
+            <div class="blog-container">
+
+                <article class="card">
+                    <h3>HTML cơ bản</h3>
+                    <p class="date">13/10/2026</p>
+                    <p>HTML cung cấp các thẻ để tạo tiêu đề, đoạn văn,
+                    liên kết, hình ảnh và nhiều thành phần khác.</p>
+                    <a href="#post-html">Xem chi tiết →</a>
+                </article>
+
+                <article class="card">
+                    <h3>CSS cơ bản</h3>
+                    <p class="date">12/10/2026</p>
+                    <p>CSS giúp thay đổi màu sắc, bố cục, khoảng cách
+                    và giao diện của website.</p>
+                    <a href="#post-css">Xem chi tiết →</a>
+                </article>
+
+                <article class="card">
+                    <h3>JavaScript nhập môn</h3>
+                    <p class="date">11/10/2026</p>
+                    <p>JavaScript giúp website xử lý sự kiện
+                    và tương tác với người dùng.</p>
+                    <a href="#post-js">Xem chi tiết →</a>
+                </article>
+
+                <article class="card">
+                    <h3>Kinh nghiệm học lập trình</h3>
+                    <p class="date">10/10/2026</p>
+                    <p>Chia nhỏ mục tiêu, luyện tập thường xuyên
+                    và xây dựng dự án thực tế.</p>
+                    <a href="#post-study">Xem chi tiết →</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- TRANG DANH MỤC -->
+        <section id="categories" class="page">
+            <h2>Danh mục bài viết</h2>
+
+            <div class="blog-container">
+                <article class="card">
+                    <h3>💻 Công nghệ</h3>
+                    <p>Các kiến thức cơ bản về công nghệ thông tin.</p>
+                    <a href="#posts">Xem bài viết →</a>
+                </article>
+
+                <article class="card">
+                    <h3>🌐 Thiết kế web</h3>
+                    <p>HTML, CSS và thiết kế giao diện website.</p>
+                    <a href="#posts">Xem bài viết →</a>
+                </article>
+
+                <article class="card">
+                    <h3>📘 Lập trình</h3>
+                    <p>Kiến thức lập trình và các ngôn ngữ phổ biến.</p>
+                    <a href="#posts">Xem bài viết →</a>
+                </article>
+
+                <article class="card">
+                    <h3>🎓 Học tập</h3>
+                    <p>Chia sẻ phương pháp học tập hiệu quả.</p>
+                    <a href="#posts">Xem bài viết →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- TRANG GIỚI THIỆU -->
+        <section id="about" class="page">
+            <div class="card">
+                <h2>Giới thiệu Mini Blog</h2>
+                <p>
+                    Mini Blog là website chia sẻ kiến thức về công nghệ,
+                    lập trình và học tập.l
+                </p>
+                <p>
+                    Website được xây dựng bằng HTML, CSS và JavaScript,
+                    với giao diện đơn giản, dễ sử dụng và tương thích
+                    với các thiết bị có kích thước màn hình khác nhau.
+                </p>
+
+                <h3>Thông tin website</h3>
+                <p>• Tên: Mini Blog</p>
+                <p>• Chủ đề: Công nghệ và học tập</p>
+                <p>• Giao diện: Responsive</p>
+                <p>• Công nghệ: HTML, CSS, JavaScript</p>
+            </div>
+        </section>
+
+        <!-- TRANG LIÊN HỆ -->
+        <section id="contact" class="page">
+            <h2>Liên hệ với chúng tôi</h2>
+
+            <form class="contact-form" id="contactForm">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name"
+                       placeholder="Nhập họ và tên" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email"
+                       placeholder="Nhập email" required>
+
+                <label for="message">Nội dung</label>
+                <textarea id="message" rows="5"
+                          placeholder="Nhập nội dung liên hệ"
+                          required></textarea>
+
+                <button type="submit" class="btn">
+                    Gửi liên hệ
+                </button>
+            </form>
+        </section>
+
+        <!-- CÁC TRANG CHI TIẾT BÀI VIẾT -->
+
+        <section id="post-html" class="page">
+            <article class="card">
+                <p class="date">13/10/2026 · Công nghệ</p>
+                <h2>HTML cơ bản</h2>
+                <p>
+                    HTML là ngôn ngữ đánh dấu dùng để xây dựng
+                    cấu trúc của trang web.
+                </p>
+                <h3>Một số thẻ thường dùng</h3>
+                <p><code>&lt;h1&gt;</code>: Tạo tiêu đề.</p>
+                <p><code>&lt;p&gt;</code>: Tạo đoạn văn.</p>
+                <p><code>&lt;a&gt;</code>: Tạo liên kết.</p>
+                <p><code>&lt;img&gt;</code>: Hiển thị hình ảnh.</p>
+                <a href="#posts">← Quay lại bài viết</a>
+            </article>
+        </section>
+
+        <section id="post-css" class="page">
+            <article class="card">
+                <p class="date">12/10/2026 · Thiết kế web</p>
+                <h2>CSS cơ bản</h2>
+                <p>
+                    CSS dùng để định dạng cách các thành phần HTML
+                    được hiển thị trên trình duyệt.
+                </p>
+                <h3>Ví dụ</h3>
+                <p>
+                    Thuộc tính <code>color</code> thay đổi màu chữ,
+                    <code>background</code> tạo nền và
+                    <code>margin</code> tạo khoảng cách bên ngoài.
+                </p>
+                <a href="#posts">← Quay lại bài viết</a>
+            </article>
+        </section>
+
+        <section id="post-js" class="page">
+            <article class="card">
+                <h2>JavaScript nhập môn</h2>
+                <p>
+                    JavaScript hỗ trợ xử lý sự kiện, kiểm tra dữ liệu
+                    biểu mẫu và cập nhật nội dung trang web.
+                </p>
+                <a href="#posts">← Quay lại bài viết</a>
+            </article>
+        </section>
+
+        <section id="post-study" class="page">
+            <article class="card">
+                <h2>Kinh nghiệm học lập trình</h2>
+                <p>
+                    Nên bắt đầu từ kiến thức cơ bản, thực hành
+                    từng bước và tự xây dựng những dự án nhỏ.
+                </p>
+                <a href="#posts">← Quay lại bài viết</a>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Mini Blog. All rights reserved.</p>
+        <p>Email: miniblog@example.com</p>
+        <p>
+            <a href="#home">Quay lại đầu trang ↑</a>
+        </p>
+    </footer>
+
+    <!-- JAVASCRIPT ĐIỀU HƯỚNG -->
+    <script>
+        const pages = document.querySelectorAll(".page");
+        const menuLinks = document.querySelectorAll("nav a");
+
+        function showPage(pageId) {
+            const targetPage = document.getElementById(pageId);
+
+            if (!targetPage || !targetPage.classList.contains("page")) {
+                pageId = "home";
+            }
+
+            pages.forEach(function(page) {
+                page.classList.remove("active");
+            });
+
+            document.getElementById(pageId).classList.add("active");
+
+            menuLinks.forEach(function(link) {
+                link.classList.toggle(
+                    "active",
+                    link.dataset.page === pageId
+                );
+            });
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function handleNavigation() {
+            const pageId = window.location.hash.slice(1) || "home";
+            showPage(pageId);
+        }
+
+        window.addEventListener("hashchange", handleNavigation);
+
+        handleNavigation();
+
+        // Biểu mẫu liên hệ mẫu
+        document.getElementById("contactForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                alert("Đã nhận thông tin trên giao diện mẫu!");
+
+                this.reset();
+            });
+    </script>
+
+</body>
+</html>
+```

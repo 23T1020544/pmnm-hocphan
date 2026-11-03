@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2 class="card-title">Thông tin cá nhân</h2>
+        <p class="card-text fs-5">Xin chào <strong class="text-primary">{{ session['user'] }}</strong>, đây là trang thông tin riêng của bạn.</p>
+    </div>
+</div>
+{% endblock %}

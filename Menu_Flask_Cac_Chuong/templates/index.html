@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu các chương học</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header>
+    <div class="tag">PYTHON · FLASK · PHẦN MỀM MÃ NGUỒN MỞ</div>
+    <h1>Menu các chương học</h1>
+    <p>Chọn chương bạn muốn mở để truy cập ứng dụng web.</p>
+</header>
+<main>
+    <div class="heading">
+        <div><h2>Danh sách chương</h2><p>Các dự án được sắp xếp theo chương.</p></div>
+        <span>{{ chapters|length }} chương</span>
+    </div>
+    <section class="cards">
+    {% for chapter in chapters %}
+        <article class="card">
+            <div class="icon">{{ chapter.icon }}</div>
+            <small>CHƯƠNG {{ chapter.number }}</small>
+            <h3>{{ chapter.title }}</h3>
+            <p>{{ chapter.description }}</p>
+            <a href="{{ chapter.url }}" target="_blank">Mở chương <b>↗</b></a>
+        </article>
+    {% endfor %}
+    </section>
+</main>
+<footer>Website điều hướng được xây dựng bằng Python Flask, HTML và CSS.</footer>
+</body>
+</html>

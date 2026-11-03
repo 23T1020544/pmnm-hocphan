@@ -1,0 +1,20 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f6fb;color:#1e293b}
+header{text-align:center;padding:55px 20px 65px;color:#fff;background:linear-gradient(130deg,#312e81,#4f46e5,#818cf8)}
+.tag{font-size:12px;letter-spacing:1.5px;color:#e0e7ff;margin-bottom:17px}
+header h1{font-size:36px;margin-bottom:12px}
+header p{color:#e0e7ff;line-height:1.6}
+main{max-width:1080px;margin:38px auto;padding:0 20px}
+.heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:23px;gap:15px}
+.heading h2{font-size:24px;margin-bottom:7px}.heading p{color:#64748b}
+.heading span{padding:8px 13px;background:#e0e7ff;color:#4338ca;border-radius:20px;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:white;padding:25px;border:1px solid #e5e7eb;border-radius:15px;box-shadow:0 7px 22px #0f172a0a;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px #0f172a14}
+.icon{display:grid;place-items:center;width:52px;height:52px;background:#eef2ff;border-radius:13px;font-size:26px;margin-bottom:17px}
+.card small{color:#6366f1;font-weight:bold;letter-spacing:1px}
+.card h3{font-size:19px;margin:9px 0 12px}.card p{color:#64748b;font-size:14px;line-height:1.65;min-height:68px;margin-bottom:20px}
+.card a{display:inline-flex;gap:10px;align-items:center;text-decoration:none;color:white;background:#4f46e5;padding:11px 16px;border-radius:8px;font-size:14px;font-weight:bold}
+.card a:hover{background:#3730a3}
+footer{text-align:center;color:#64748b;padding:28px 15px;font-size:13px}
+@media(max-width:600px){header h1{font-size:28px}.heading{align-items:flex-start;flex-direction:column}}

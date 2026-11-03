@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Tính điểm học phần{% endblock %}
+
+{% block content %}
+    <h2>Tính điểm học phần</h2>
+    <form action="/tinh-diem" method="POST">
+        <div class="nhom-nhap-lieu">
+            <label for="chuyen_can">Chuyên cần (10%):</label>
+            <input type="text" id="chuyen_can" name="chuyen_can" value="{{ giat_tri_chuyen_can }}">
+            {% if loi_chuyen_can %}
+                <div class="thong-bao-loi">{{ loi_chuyen_can }}</div>
+            {% endif %}
+        </div>
+
+        <div class="nhom-nhap-lieu">
+            <label for="giua_ky">Giữa kỳ (30%):</label>
+            <input type="text" id="giua_ky" name="giua_ky" value="{{ giat_tri_giua_ky }}">
+            {% if loi_giua_ky %}
+                <div class="thong-bao-loi">{{ loi_giua_ky }}</div>
+            {% endif %}
+        </div>
+
+        <div class="nhom-nhap-lieu">
+            <label for="cuoi_ky">Cuối kỳ (60%):</label>
+            <input type="text" id="cuoi_ky" name="cuoi_ky" value="{{ giat_tri_cuoi_ky }}">
+            {% if loi_cuoi_ky %}
+                <div class="thong-bao-loi">{{ loi_cuoi_ky }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit">Tính điểm</button>
+    </form>
+
+    {% if chuoi_ket_qua %}
+        <div class="ket-qua">
+            {{ chuoi_ket_qua }}
+        </div>
+    {% endif %}
+{% endblock %}

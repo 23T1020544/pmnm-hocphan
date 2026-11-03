@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from "_macros.html" import post_card %}
+
+{% block title %}Trang chủ{% endblock %}
+
+{% block content %}
+<div class="bg-white p-5 rounded-4 shadow-sm text-center mb-5 border">
+    <h2 class="fw-bold text-primary mb-3">Chào mừng đến với Mini Blog!</h2>
+    <p class="text-secondary fs-5 mb-4">
+        Khám phá kiến thức về công nghệ, lập trình và những kinh nghiệm hữu ích trong học tập.
+    </p>
+    <a href="#" class="btn btn-primary btn-lg px-4 fs-6 fw-semibold">Khám phá bài viết</a>
+</div>
+
+<section>
+    <h3 class="fw-bold text-primary mb-4">Bài viết nổi bật</h3>
+    
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for post in posts %}
+            <div class="col">
+                {{ post_card(post) }}
+            </div>
+        {% else %}
+            <div class="col-12">
+                <p class="text-muted">Chưa có bài viết nào.</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

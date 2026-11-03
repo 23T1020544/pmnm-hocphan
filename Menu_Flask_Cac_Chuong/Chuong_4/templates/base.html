@@ -1,0 +1,82 @@
+```html
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Trang chủ{% endblock %} - MiniBlog</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 30px;
+            background-color: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .site-title h2 {
+            margin: 0 0 5px;
+            color: #4f46e5;
+        }
+
+        .site-title p {
+            margin: 0;
+            color: #64748b;
+        }
+                  
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+    </style>
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <header class="site-header">
+        <img
+            src="{{ url_for('static', filename='logo.svg') }}"
+            alt="Logo"
+            class="logo"
+        >
+
+        <div class="site-title">
+            <h2>Phần mềm mã nguồn mở</h2>
+            <p>Khoa Công nghệ Thông tin</p>
+        </div>
+    </header>
+
+    {% include "menu.html" %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="text-align: center; padding: 20px; color: #64748b;">
+        Website thực hành Flask - Chương 4
+    </footer>
+</body>
+</html>
+```

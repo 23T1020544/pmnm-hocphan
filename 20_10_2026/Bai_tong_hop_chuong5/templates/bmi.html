@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Tính chỉ số BMI{% endblock %}
+
+{% block content %}
+    <h2>Tính chỉ số BMI</h2>
+    <form action="/bmi" method="POST">
+        <div class="nhom-nhap-lieu">
+            <label for="cao">Chiều cao (cm):</label>
+            <input type="text" id="cao" name="cao" value="{{ val_cao }}">
+            {% if error_cao %}
+                <div class="thong-bao-loi">{{ error_cao }}</div>
+            {% endif %}
+        </div>
+
+        <div class="nhom-nhap-lieu">
+            <label for="nang">Cân nặng (kg):</label>
+            <input type="text" id="nang" name="nang" value="{{ val_nang }}">
+            {% if error_nang %}
+                <div class="thong-bao-loi">{{ error_nang }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit">Tính BMI</button>
+    </form>
+
+    {% if bmi_val %}
+        <div class="ket-qua ket-qua-{{ mau_ket_qua }}">
+            <div>{{ bmi_val }} - {{ phan_loai }}</div>
+            <div style="font-size: 0.9em; font-weight: normal; margin-top: 5px;">
+                Cân nặng nên có: {{ can_nang_nen_co }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

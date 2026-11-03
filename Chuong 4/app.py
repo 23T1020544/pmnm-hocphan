@@ -2,7 +2,7 @@ import io
 
 import csv
 
-from flask import Flask, request, jsonify, render_template_string, url_for, redirect, abort, make_response
+from flask import Flask, app, request, jsonify, render_template, render_template_string, url_for, redirect, abort, make_response
 
 
 
@@ -1008,6 +1008,27 @@ def xuat_ket_qua_tim_kiem_csv():
     phan_hoi.headers['Content-Type'] = 'text/csv; charset=utf-8'
     phan_hoi.headers['Content-Disposition'] = 'attachment; filename="ket_qua_tim_kiem.csv"'
     return phan_hoi
+
+
+@ung_dung.route('/filters')
+def trang_gioi_thieu_filters():
+          ky_nang = ["Python", "Flask", "HTML"]
+          sinh_vien_mau = [
+                    {"name": "Nguyễn An", "diem": 8},
+                    {"name": "Trần Bình", "diem": 9},
+                    {"name": "Lê Cường", "diem": 7},
+          ]
+
+          return render_template(
+                    'filters.html',
+                    name="nguyễn an",
+                    ky_nang=ky_nang,
+                    sinh_vien=sinh_vien_mau,
+                    noi_dung_dai="Nội dung này dài hơn mức cho phép",
+                    so_thuc=3.14159,
+                    html_mau="<b>Chào</b>",
+                    html_tin_cay="<strong>HTML đáng tin cậy</strong>",
+          )
 
 
 # API JSON DỮ LIỆU GỐC

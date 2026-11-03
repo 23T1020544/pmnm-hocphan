@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Dự Án Học Tập</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+
+    /* Thanh Menu Bên Trái (Sidebar) */
+    .sidebar {
+      width: 280px;
+      background-color: #1e293b;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-bottom: 1px solid #334155;
+      background-color: #0f172a;
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 10px 0;
+    }
+
+    .menu-item {
+      padding: 15px 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-item:hover, .menu-item.active {
+      background-color: #334155;
+      border-left: 4px solid #3b82f6;
+    }
+
+    /* Vùng Nội Dung Dự Án */
+    .content {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .project-card h2 {
+      color: #1e293b;
+      margin-bottom: 15px;
+    }
+
+    .file-info {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+
+    .btn-download {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+
+    .btn-download:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <div class="sidebar-header">📂 Danh Sách Dự Án</div>
+    <ul class="menu-list">
+      <li class="menu-item active" onclick="showProject('c3')">📁 Chương 3</li>
+      <li class="menu-item" onclick="showProject('c4')">📁 Chương 4</li>
+      <li class="menu-item" onclick="showProject('c5')">📁 Tổng hợp Chương 5</li>
+      <li class="menu-item" onclick="showProject('c6')">📁 Chương 6</li>
+    </ul>
+  </div>
+
+  <!-- Nội dung trang dự án -->
+  <div class="content">
+    <div id="project-details" class="project-card">
+      <!-- Nội dung chi tiết từng dự án sẽ thay đổi tại đây -->
+    </div>
+  </div>
+
+  <script>
+    // Dữ liệu các dự án dựa trên thư mục hiện tại
+    const projects = {
+      'c3': {
+        title: "Dự án: Chương 3",
+        path: "Du_An_Hoc/Chuong3_12.py",
+        type: "Tập tin Python (.py)",
+        description: "Bao gồm các bài tập và thuật toán xử lý thuộc Chương 3."
+      },
+      'c4': {
+        title: "Dự án: Chương 4",
+        path: "Du_An_Hoc/Chuong 4.zip",
+        type: "Tệp nén (.zip)",
+        description: "Toàn bộ tài nguyên, bài tập thực hành của Chương 4."
+      },
+      'c5': {
+        title: "Dự án: Bài Tổng Hợp Chương 5",
+        path: "Du_An_Hoc/Bai_tong_hop_chuong5.zip",
+        type: "Tệp nén (.zip)",
+        description: "Bài tập tổng hợp và báo cáo thực hành Chương 5."
+      },
+      'c6': {
+        title: "Dự án: Chương 6",
+        path: "Du_An_Hoc/Chuong 6.zip",
+        type: "Tệp nén (.zip)",
+        description: "Tài liệu và bài tập ứng dụng Chương 6."
+      }
+    };
+
+    function showProject(key) {
+      // Cập nhật trạng thái Active trên Menu
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => item.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      // Cập nhật nội dung hiển thị
+      const data = projects[key];
+      const container = document.getElementById('project-details');
+      
+      container.innerHTML = `
+        <h2>${data.title}</h2>
+        <p>${data.description}</p>
+        <div class="file-info">
+          <strong>Đường dẫn:</strong> ${data.path}<br>
+          <strong>Định dạng:</strong> ${data.type}
+        </div>
+        <a href="${data.path}" class="btn-download" download> Tải về dự án</a>
+      `;
+    }
+
+    // Mặc định hiển thị Dự án Chương 3
+    showProject('c3');
+  </script>
+</body>
+</html>

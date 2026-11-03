@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Thực hành Filters{% endblock %}
+
+{% block content %}
+<h1>Thực hành Jinja Filters</h1>
+
+<h2>Thông tin</h2>
+<p><b>Tên viết thường:</b> {{ name|lower }}</p>
+<p><b>Kỹ năng:</b> {{ ky_nang|join(", ") }}</p>
+<p><b>Nội dung giới hạn:</b> {{ noi_dung_dai|truncate(20) }}</p>
+<p><b>Số thực làm tròn:</b> {{ so_thuc|round(2) }}</p>
+<p><b>HTML được escape:</b> {{ html_mau }}</p>
+<p><b>HTML đã được đánh dấu tin cậy:</b> {{ html_tin_cay|safe }}</p>
+
+<h2>Danh sách sinh viên</h2>
+<ul>
+    {% for item in sinh_vien %}
+    <li>{{ item.name }} - {{ item.diem }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

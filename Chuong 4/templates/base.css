@@ -1,0 +1,24 @@
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #16477e;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.site-title h2 {
+    margin: 0;
+    color: #16477e;
+}
+
+.site-title p {
+    margin: 5px 0 0;
+    color: #555;
+}

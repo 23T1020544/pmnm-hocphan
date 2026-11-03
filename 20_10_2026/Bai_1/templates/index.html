@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính cơ bản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .calculator-form {
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-form">
+        <h2>Máy tính cơ bản</h2>
+        <form action="/" method="POST">
+            
+            <div class="form-group">
+                <label for="a">Số thứ nhất (a):</label>
+                <input type="text" id="a" name="a" value="{{ val_a }}">
+                {% if error_a %}
+                    <div class="error-message">{{ error_a }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="op">Phép toán (op):</label>
+                <select id="op" name="op">
+                    <option value="+" {% if selected_op == '+' %}selected{% endif %}>+</option>
+                    <option value="-" {% if selected_op == '-' %}selected{% endif %}>-</option>
+                    <option value="*" {% if selected_op == '*' %}selected{% endif %}>*</option>
+                    <option value="/" {% if selected_op == '/' %}selected{% endif %}>/</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="b">Số thứ hai (b):</label>
+                <input type="text" id="b" name="b" value="{{ val_b }}">
+                {% if error_b %}
+                    <div class="error-message">{{ error_b }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit">Tính toán</button>
+        </form>
+
+        {% if result_str %}
+            <div class="result">
+                {{ result_str }}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

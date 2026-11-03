@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Máy tính cơ bản{% endblock %}
+
+{% block content %}
+    <h2>Máy tính cơ bản</h2>
+    <form action="{{ url_for('calculator') }}" method="POST">
+        <div class="nhom-nhap-lieu">
+            <label for="a">Số thứ nhất (a):</label>
+            <input type="text" id="a" name="a" value="{{ val_a }}">
+            {% if error_a %}
+                <div class="thong-bao-loi">{{ error_a }}</div>
+            {% endif %}
+        </div>
+
+        <div class="nhom-nhap-lieu">
+            <label for="op">Phép toán (op):</label>
+            <select id="op" name="op">
+                <option value="+" {% if selected_op == '+' %}selected{% endif %}>+</option>
+                <option value="-" {% if selected_op == '-' %}selected{% endif %}>-</option>
+                <option value="*" {% if selected_op == '*' %}selected{% endif %}>*</option>
+                <option value="/" {% if selected_op == '/' %}selected{% endif %}>/</option>
+                {% if selected_op not in ['+', '-', '*', '/'] %}
+                    <option value="{{ selected_op }}" selected>{{ selected_op }}</option>
+                {% endif %}
+            </select>
+        </div>
+
+        <div class="nhom-nhap-lieu">
+            <label for="b">Số thứ hai (b):</label>
+            <input type="text" id="b" name="b" value="{{ val_b }}">
+            {% if error_b %}
+                <div class="thong-bao-loi">{{ error_b }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit">Tính toán</button>
+    </form>
+
+    {% if result_str %}
+        <div class="ket-qua">
+            {{ result_str }}
+        </div>
+    {% endif %}
+{% endblock %}
